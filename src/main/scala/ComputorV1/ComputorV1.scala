@@ -8,7 +8,6 @@ object ComputorV1 {
 
   type coefAndExp = Map[Option[Int], Int]
 
-
   def splitEquation(s: String): List[String] = s.split("=").toList
 
   def tryToInt(s: String): Option[Int] = Try(s.toInt).toOption
@@ -16,11 +15,21 @@ object ComputorV1 {
   def removeAllWhiteSpaces(s: String): String = s.replaceAll("\\s", "")
 
   def parseCoef(s: String): coefAndExp = {
-    val r = new Regex("([-+]?(?:\\d+\\.)?\\d+)(?:[\\*]?[Xx][\\^]?(\\d+))?")
-    val sWithoutSpaces = removeAllWhiteSpaces(s)
+    val r = new Regex("""([-+]?(?:\d+\.)?\d+)(?:[\*]?[Xx][\^]?(\d+))?""")
 
-//    val eqTestLeftRight = splitEquation().map(a => println(a.toString))
-    r.findAllIn(sWithoutSpaces).map {
+    println(s)
+    val matches = r.findAllMatchIn(removeAllWhiteSpaces(s)) map (m => (m.group(1), m.group(2))) toList
+
+    println(matches)
+
+    val newMatches = matches.map {
+      case (a, null) => (None, a.toInt)
+      case (a, b) => (Option(b.toInt), a.toInt)
+    }.toMap
+
+    println(newMatches)
+
+    r.findAllIn(removeAllWhiteSpaces(s)).map {
       case r(a, null) => (None, a.toInt)
       case r(a, b) => (Option(b.toInt), a.toInt)
     }.toMap
@@ -34,7 +43,7 @@ object ComputorV1 {
 
   def main(args: Array[String]): Unit = {
 
-    val eqTest = removeAllWhiteSpaces("5 * X^0 + 4 * X^1 - 9 * X^2 = 1 * X^0")
+    val eqTest = removeAllWhiteSpaces("5 * X^0 + 4 * X^1 - 9 * X^2 + 5 = 1 * X^0")
 
     val splitAr = splitEquation(eqTest)
 
