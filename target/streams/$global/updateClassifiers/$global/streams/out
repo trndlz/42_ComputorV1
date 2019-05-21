@@ -1016,40 +1016,112 @@
 [debug] == resolving dependencies default#computorv1$sources;0.1->jline#jline;2.14.6 [scala-tool->master]
 [debug] 	resolved ivy file produced in cache
 [debug] :: downloading artifacts ::
-[debug] 		tried /Users/tmervin/.ivy2/local/org.typelevel/cats-core_2.12/2.0.0-M1/srcs/cats-core_2.12-sources.jar
-[debug] 		tried /Users/tmervin/.ivy2/local/org.typelevel/cats-kernel_2.12/2.0.0-M1/srcs/cats-kernel_2.12-sources.jar
+[debug] 	[NOT REQUIRED] org.typelevel#cats-core_2.12;2.0.0-M1!cats-core_2.12.jar(src)
+[debug] 	[NOT REQUIRED] org.typelevel#cats-kernel_2.12;2.0.0-M1!cats-kernel_2.12.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-lang#scala-library;2.12.8!scala-library.jar(src)
-[debug] 		tried https://repo1.maven.org/maven2/org/typelevel/cats-kernel_2.12/2.0.0-M1/cats-kernel_2.12-2.0.0-M1-sources.jar
-[debug] 		tried https://repo1.maven.org/maven2/org/typelevel/cats-core_2.12/2.0.0-M1/cats-core_2.12-2.0.0-M1-sources.jar
-[debug] 		tried /Users/tmervin/.ivy2/local/org.typelevel/cats-macros_2.12/2.0.0-M1/srcs/cats-macros_2.12-sources.jar
-[debug] 		tried /Users/tmervin/.ivy2/local/org.typelevel/machinist_2.12/0.6.7/srcs/machinist_2.12-sources.jar
-[debug] 		tried https://repo1.maven.org/maven2/org/typelevel/cats-macros_2.12/2.0.0-M1/cats-macros_2.12-2.0.0-M1-sources.jar
+[debug] no default ivy user dir defined: set to /Users/tmervin/.ivy2
+[debug] no default ivy user dir defined: set to /Users/tmervin/.ivy2
+[debug] no default ivy user dir defined: set to /Users/tmervin/.ivy2
+[debug] 	[NOT REQUIRED] org.typelevel#cats-macros_2.12;2.0.0-M1!cats-macros_2.12.jar(src)
+[debug] no default ivy user dir defined: set to /Users/tmervin/.ivy2
+[debug] 	[NOT REQUIRED] org.typelevel#machinist_2.12;0.6.7!machinist_2.12.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-lang#scala-reflect;2.12.8!scala-reflect.jar(src)
-[debug] 		tried https://repo1.maven.org/maven2/org/typelevel/machinist_2.12/0.6.7/machinist_2.12-0.6.7-sources.jar
+[debug] no default ivy user dir defined: set to /Users/tmervin/.ivy2
+[debug] no default ivy user dir defined: set to /Users/tmervin/.ivy2
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
+[debug] no default cache defined: set to /Users/tmervin/.ivy2/cache
+[debug] no default cache defined: set to /Users/tmervin/.ivy2/cache
+[debug] no default cache defined: set to /Users/tmervin/.ivy2/cache
+[debug] no default cache defined: set to /Users/tmervin/.ivy2/cache
+[debug] no default cache defined: set to /Users/tmervin/.ivy2/cache
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
+[debug] settings loaded (25ms)
+[debug] 	default cache: /Users/tmervin/.ivy2/cache
+[debug] 	default resolver: default
+[debug] 	-- 5 resolvers:
+[debug] 	shared [file]
+[debug] settings loaded (28ms)
+[debug] 	default cache: /Users/tmervin/.ivy2/cache
+[debug] 	default resolver: default
+[debug] 	-- 5 resolvers:
+[debug] 	shared [file]
+[debug] 	default [chain] [local, main]
+[debug] 	default [chain] [local, main]
+[debug] 	public [ibiblio]
+[debug] 	public [ibiblio]
+[debug] no default cache defined: set to /Users/tmervin/.ivy2/cache
+[debug] 	main [chain] [shared, public]
+[debug] 	main [chain] [shared, public]
+[debug] 	local [file]
+[debug] 	local [file]
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
+[debug] settings loaded (26ms)
+[debug] 	default cache: /Users/tmervin/.ivy2/cache
+[debug] 	default resolver: default
+[debug] 	-- 5 resolvers:
+[debug] 	shared [file]
+[debug] 	default [chain] [local, main]
+[debug] 	public [ibiblio]
+[debug] 	main [chain] [shared, public]
+[debug] settings loaded (30ms)
+[debug] 	local [file]
+[debug] 	default cache: /Users/tmervin/.ivy2/cache
+[debug] 	default resolver: default
+[debug] 	-- 5 resolvers:
+[debug] 	shared [file]
+[debug] 	default [chain] [local, main]
+[debug] 	public [ibiblio]
+[debug] 	main [chain] [shared, public]
+[debug] 	local [file]
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
 [debug] 	[NOT REQUIRED] org.scala-lang.modules#scala-xml_2.12;1.0.6!scala-xml_2.12.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-lang#scala-compiler;2.12.8!scala-compiler.jar(src)
+[debug] settings loaded (33ms)
+[debug] 	default cache: /Users/tmervin/.ivy2/cache
+[debug] 	default resolver: default
 [debug] 	[NOT REQUIRED] jline#jline;2.14.6!jline.jar(src)
-[info] downloading https://repo1.maven.org/maven2/org/typelevel/cats-kernel_2.12/2.0.0-M1/cats-kernel_2.12-2.0.0-M1-sources.jar ...
-[debug] 	public: downloading https://repo1.maven.org/maven2/org/typelevel/cats-kernel_2.12/2.0.0-M1/cats-kernel_2.12-2.0.0-M1-sources.jar
-[info] downloading https://repo1.maven.org/maven2/org/typelevel/machinist_2.12/0.6.7/machinist_2.12-0.6.7-sources.jar ...
-[info] downloading https://repo1.maven.org/maven2/org/typelevel/cats-macros_2.12/2.0.0-M1/cats-macros_2.12-2.0.0-M1-sources.jar ...
-[debug] 	public: downloading https://repo1.maven.org/maven2/org/typelevel/cats-macros_2.12/2.0.0-M1/cats-macros_2.12-2.0.0-M1-sources.jar
-[debug] 	public: downloading https://repo1.maven.org/maven2/org/typelevel/machinist_2.12/0.6.7/machinist_2.12-0.6.7-sources.jar
-[info] downloading https://repo1.maven.org/maven2/org/typelevel/cats-core_2.12/2.0.0-M1/cats-core_2.12-2.0.0-M1-sources.jar ...
-[debug] 	public: downloading https://repo1.maven.org/maven2/org/typelevel/cats-core_2.12/2.0.0-M1/cats-core_2.12-2.0.0-M1-sources.jar
-[debug] 	public: downloading https://repo1.maven.org/maven2/org/typelevel/cats-kernel_2.12/2.0.0-M1/cats-kernel_2.12-2.0.0-M1-sources.jar.sha1
-[debug] 	public: downloading https://repo1.maven.org/maven2/org/typelevel/cats-macros_2.12/2.0.0-M1/cats-macros_2.12-2.0.0-M1-sources.jar.sha1
-[debug] 	public: downloading https://repo1.maven.org/maven2/org/typelevel/machinist_2.12/0.6.7/machinist_2.12-0.6.7-sources.jar.sha1
-[debug] 	public: downloading https://repo1.maven.org/maven2/org/typelevel/cats-core_2.12/2.0.0-M1/cats-core_2.12-2.0.0-M1-sources.jar.sha1
-[debug] sha1 OK for https://repo1.maven.org/maven2/org/typelevel/cats-kernel_2.12/2.0.0-M1/cats-kernel_2.12-2.0.0-M1-sources.jar
-[info] 	[SUCCESSFUL ] org.typelevel#cats-kernel_2.12;2.0.0-M1!cats-kernel_2.12.jar(src) (34ms)
-[debug] sha1 OK for https://repo1.maven.org/maven2/org/typelevel/cats-macros_2.12/2.0.0-M1/cats-macros_2.12-2.0.0-M1-sources.jar
-[debug] sha1 OK for https://repo1.maven.org/maven2/org/typelevel/machinist_2.12/0.6.7/machinist_2.12-0.6.7-sources.jar
-[info] 	[SUCCESSFUL ] org.typelevel#machinist_2.12;0.6.7!machinist_2.12.jar(src) (37ms)
-[info] 	[SUCCESSFUL ] org.typelevel#cats-macros_2.12;2.0.0-M1!cats-macros_2.12.jar(src) (37ms)
-[debug] sha1 OK for https://repo1.maven.org/maven2/org/typelevel/cats-core_2.12/2.0.0-M1/cats-core_2.12-2.0.0-M1-sources.jar
-[info] 	[SUCCESSFUL ] org.typelevel#cats-core_2.12;2.0.0-M1!cats-core_2.12.jar(src) (46ms)
-[debug] :: resolution report :: resolve 152ms :: artifacts dl 53ms
+[debug] 	-- 5 resolvers:
+[debug] 	shared [file]
+[debug] 	default [chain] [local, main]
+[debug] 	public [ibiblio]
+[debug] 	main [chain] [shared, public]
+[debug] 	local [file]
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
+[debug] including url: jar:file:/Users/tmervin/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
+[debug] settings loaded (39ms)
+[debug] 	default cache: /Users/tmervin/.ivy2/cache
+[debug] 	default resolver: default
+[debug] 	-- 5 resolvers:
+[debug] 	shared [file]
+[debug] 	default [chain] [local, main]
+[debug] 	public [ibiblio]
+[debug] 	main [chain] [shared, public]
+[debug] 	local [file]
+[debug] :: resolution report :: resolve 519ms :: artifacts dl 53ms
 [debug] 	report for default#computorv1$sources;0.1 compile produced in /Users/tmervin/Documents/ComputorV1/target/scala-2.12/resolution-cache/reports/default-computorv1$sources-compile.xml
 [debug] 	report for default#computorv1$sources;0.1 runtime produced in /Users/tmervin/Documents/ComputorV1/target/scala-2.12/resolution-cache/reports/default-computorv1$sources-runtime.xml
 [debug] 	report for default#computorv1$sources;0.1 test produced in /Users/tmervin/Documents/ComputorV1/target/scala-2.12/resolution-cache/reports/default-computorv1$sources-test.xml
@@ -1061,4 +1133,4 @@
 [debug] 	report for default#computorv1$sources;0.1 plugin produced in /Users/tmervin/Documents/ComputorV1/target/scala-2.12/resolution-cache/reports/default-computorv1$sources-plugin.xml
 [debug] 	report for default#computorv1$sources;0.1 pom produced in /Users/tmervin/Documents/ComputorV1/target/scala-2.12/resolution-cache/reports/default-computorv1$sources-pom.xml
 [debug] 	report for default#computorv1$sources;0.1 scala-tool produced in /Users/tmervin/Documents/ComputorV1/target/scala-2.12/resolution-cache/reports/default-computorv1$sources-scala-tool.xml
-[debug] 	resolve done (152ms resolve - 53ms download)
+[debug] 	resolve done (519ms resolve - 53ms download)
