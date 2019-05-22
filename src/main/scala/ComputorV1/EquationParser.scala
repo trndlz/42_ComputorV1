@@ -6,10 +6,12 @@ import scala.util.matching.Regex
 
 class EquationParser {
 
-  type coefAndExp = Map[Int, Double]
+  val u = new Utils
 
-  private def invertMap(m: coefAndExp): coefAndExp = m map {
-    case (exp, value) => (exp, -value)
+  case class EqParameters(coefficients: Double, degree: Int)
+
+  private def invertMap(m: List[EqParameters]): List[EqParameters] = {
+    m.map(a => EqParameters(-a.coefficients, a.degree))
   }
 
   private def splitEquation(s: String): List[String] = s.split("=").toList
@@ -18,67 +20,61 @@ class EquationParser {
 
   private def removeAllWhiteSpaces(s: String): String = s.replaceAll("\\s", "")
 
-  private def parseCoef(s: String): coefAndExp = {
-    println(s)
-      val r = new Regex("""([-+]?(?:\d+\.)?\d+)(?:[\*]?[Xx][\^]?(\d+))?""")
-      val matches = r.findAllMatchIn(removeAllWhiteSpaces(s)) map (m => {
-        println(s"${m.group(2)} / ${m.group(1)} ")
-        val exp = if (m.group(2) == null) 0 else m.group(2).toInt
-        val coe = if (m.group(1) == null) 0 else m.group(1).toDouble
-        Map(exp -> coe)
-      }) toList
-
-
-    println("Q")
-    println(matches)
-    println(matches.flatten)
-    println(matches.flatten.toMap)
-    println("A")
-
-//    val matches2 = r.findAllMatchIn(removeAllWhiteSpaces(s))
-//
-//    val testttt = for (m <- matches2); i <- 0 until end yield (m.group())
-//
-//    println("POIPOIPOI")
-//    println(testttt)
-
-//    map (m => {
-//      (m.group(1), m.group(2))
-//    }) toL
-
-//    val test = matches.map {
-//      case (a, null) => (0, a.toDouble)
-//      case (a, b) => (b.toDouble, a.toDouble)
-//    }
-
-//    println("WWW")
-//
-//    println(test)
-//    println("EEEE")
-//    println(test.toMap)
-
-
-
-      val a = matches.flatten.toMap
-
-    println(a)
-    a
+  private def groupToEqParam(c: String, d: String): EqParameters = {
+    val coef = Try(c.toDouble).toOption.getOrElse(0d)
+    val deg = Try(d.toInt).toOption.getOrElse(0)
+    EqParameters(coef, deg)
   }
 
-  def polynomialDegree(coef: coefAndExp): Int = {
-    coef.keysIterator.reduceLeft((a, b) => if ((a > b) && (a > 0.0f)) a else b)
+  private def mergeCoefficients(l: List[EqParameters]): List[EqParameters] = {
+    l.groupBy(_.degree) map { _._2 reduce { (a, b) => EqParameters(a.coefficients + b.coefficients, a.degree)}} toList
   }
 
-  def getEquationParams(coef: coefAndExp): (Double, Double, Double) = {
-    (coef.getOrElse(2, 0d), coef.getOrElse(1, 0d),coef.getOrElse(0, 0d))
+  private def getParamsList(s: String): List[EqParameters] = {
+    val r = new Regex("""([-+]?(?:\d+\.)?\d+)(?:[\*]?[Xx][\^]?(\d+))?""")
+    val matches = r.findAllMatchIn(removeAllWhiteSpaces(s)) map (m => {
+      groupToEqParam(m.group(1), m.group(2))
+    }) toList
+
+    mergeCoefficients(matches)
   }
 
-  def getEquationMap(s: String): coefAndExp = {
+  def polynomialDegree(coef: List[EqParameters]): Int = {
+    coef.map(_.degree).max
+  }
+
+  private def getCoef(d: Int, eq: List[EqParameters]): Option[Double] = eq.find(_.degree == d).map(_.coefficients)
+
+  def getEquationParams(eq: List[EqParameters]): (Double, Double, Double) = {
+    (getCoef(2, eq).getOrElse(0), getCoef(1, eq).getOrElse(0), getCoef(0, eq).getOrElse(0))
+  }
+
+  private def numberSign(n: Double): String = if (n < 0) s"-" else s"+"
+
+  private def testX(d: Double) = new java.text.DecimalFormat("#.#####").format(d)
+
+  private def printIntOrDouble(n: Double): String = if (n % 1 == 0d) s"${n.toInt}" else testX(n)
+
+  def printSimplifiedEquation(eq: List[EqParameters]): String = {
+    val p = polynomialDegree(eq)
+    val generator = for (i <- 0 to p if getCoef(i, eq).isDefined) yield (i, getCoef(i, eq).get)
+    generator.map(e => {
+      val number = (e._1, e._2) match {
+        case (0, x) if x < 0 => s"- ${printIntOrDouble(u.absD(e._2))}"
+        case (0, x) if x >= 0 => s"${printIntOrDouble(u.absD(e._2))}"
+        case (_, x) if x < 0 => s" - ${printIntOrDouble(u.absD(e._2))}"
+        case (_, x) if x >= 0 => s" + ${printIntOrDouble(u.absD(e._2))}"
+      }
+      s"$number * X^${e._1}"
+    }).mkString.concat(" = 0")
+  }
+
+  def getEquationMap(s: String): List[EqParameters] = {
     val eqTest = removeAllWhiteSpaces(s)
     val splitAr = splitEquation(eqTest)
     splitAr.length match {
-      case 1 => parseCoef(splitAr.head)
-      case 2 => parseCoef(splitAr.head) combine invertMap(parseCoef(splitAr(1)))
+      case 1 => getParamsList(splitAr.head)
+      case 2 => mergeCoefficients(getParamsList(splitAr.head) ++ invertMap(getParamsList(splitAr(1))))
       case _ => throw new Exception("Wrong expressions")
     }
   }
