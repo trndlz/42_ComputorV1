@@ -1,3 +1,15 @@
+//  # **************************************************************************** #
+//  #                                                                              #
+//  #                                                         :::      ::::::::    #
+//  #    EquationParser.scala                               :+:      :+:    :+:    #
+//  #                                                     +:+ +:+         +:+      #
+//  #    By: tmervin <marvin@42.fr>                     +#+  +:+       +#+         #
+//  #                                                 +#+#+#+#+#+   +#+            #
+//  #    Created: 2019/05/23 10:49:48 by tmervin           #+#    #+#              #
+//  #    Updated: 2019/05/23 10:49:54 by tmervin          ###   ########.fr        #
+//  #                                                                              #
+//  # **************************************************************************** #
+
 package ComputorV1
 
 import cats.implicits._
@@ -36,12 +48,17 @@ class EquationParser {
       groupToEqParam(m.group(1), m.group(2))
     }) toList
 
-    mergeCoefficients(matches)
+    val t = mergeCoefficients(matches)
+//    println("STRING")
+//    println(s)
+//    println("LIST")
+//    println(t)
+    t
   }
 
-  def polynomialDegree(coef: List[EqParameters]): Int = {
-    coef.map(_.degree).max
-  }
+  def highestDegree(coef: List[EqParameters]): Int = coef.map(_.degree).max
+
+  def polynDegree(coef: List[EqParameters]): Int = coef.filter(_.coefficients != 0d).map(_.degree).max
 
   private def getCoef(d: Int, eq: List[EqParameters]): Option[Double] = eq.find(_.degree == d).map(_.coefficients)
 
@@ -56,7 +73,7 @@ class EquationParser {
   private def printIntOrDouble(n: Double): String = if (n % 1 == 0d) s"${n.toInt}" else testX(n)
 
   def printSimplifiedEquation(eq: List[EqParameters]): String = {
-    val p = polynomialDegree(eq)
+    val p = highestDegree(eq)
     val generator = for (i <- 0 to p if getCoef(i, eq).isDefined) yield (i, getCoef(i, eq).get)
     generator.map(e => {
       val number = (e._1, e._2) match {

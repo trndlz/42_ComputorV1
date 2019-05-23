@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9f93f794-932c-4022-8430-3ed5fa6ad95c" name="Default Changelist" comment="Project initialization">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/compileIncremental/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/compileIncremental/$global/streams/out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/copyResources/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/copyResources/$global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/ComputorV1/ComputorV1.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/ComputorV1/ComputorV1.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/ComputorV1/EquationParser.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/ComputorV1/EquationParser.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/ComputorV1/Utils.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/ComputorV1/Utils.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/scala/ComputorV1/ComputorV1Test.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/ComputorV1/ComputorV1Test.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/ComputorV1/ComputorV1$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/ComputorV1/ComputorV1$.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/default/computorv1$sources/0.1/resolved.xml.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/default/computorv1$sources/0.1/resolved.xml.properties" afterDir="false" />
@@ -21,8 +21,7 @@
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-computorv1$sources-scala-tool.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-computorv1$sources-scala-tool.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-computorv1$sources-test-internal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-computorv1$sources-test-internal.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-computorv1$sources-test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-computorv1$sources-test.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/streams/$global/ivyConfiguration/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/ivyConfiguration/$global/streams/out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/update_cache_2.12/output" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/update_cache_2.12/output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/$global/$global/dumpStructure/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/$global/dumpStructure/$global/streams/out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/$global/updateClassifiers/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/updateClassifiers/$global/streams/out" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -44,59 +43,82 @@
     </projectState>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.sbt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/ComputorV1/ComputorV1.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/ComputorV1/Utils.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="30" column="35" lean-forward="true" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/ComputorV1/ComputorV1Test.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="55" column="18" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
-              <folding>
-                <marker date="1558528733000" expanded="true" signature="2391:2423" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/ComputorV1/EquationParser.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="59" column="37" selection-start-line="59" selection-start-column="37" selection-end-line="59" selection-end-column="37" />
-              <folding>
-                <element signature="e#20#43#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.6038186">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/build.sbt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="135">
+                  <caret line="9" selection-start-line="9" selection-end-line="9" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/scala/ComputorV1/ComputorV1.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1054">
+                  <caret line="90" column="31" lean-forward="true" selection-start-line="90" selection-start-column="31" selection-end-line="90" selection-end-column="31" />
+                  <folding>
+                    <element signature="n#!!doc" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/scala/ComputorV1/Utils.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="540">
+                  <caret line="36" column="55" lean-forward="true" selection-start-line="36" selection-start-column="55" selection-end-line="36" selection-end-column="55" />
+                  <folding>
+                    <element signature="n#!!doc" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/test/scala/ComputorV1/ComputorV1Test.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="711">
+                  <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/scala/ComputorV1/EquationParser.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="844">
+                  <caret line="88" column="51" selection-start-line="88" selection-start-column="51" selection-end-line="88" selection-end-column="51" />
+                  <folding>
+                    <element signature="n#!!doc" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/scala/ComputorV1/Utils.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="315">
+                  <caret line="21" column="64" selection-start-line="21" selection-start-column="64" selection-end-line="21" selection-end-column="64" />
+                  <folding>
+                    <element signature="n#!!doc" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -111,13 +133,22 @@
       <find>matchData</find>
       <find>Float</find>
       <find>println</find>
+      <find>2 * X^0 - 2 * X^1</find>
+      <find>2 * X^0 - 2 * X^1 = 0</find>
+      <find>1 * X^0 + 2 * X^1 + 4 * X^2 = 0 * X^0 + 4 * X^1 + 3 * X^2 + 0 * X^3 + 0 * X^4 + 0 * X^5</find>
+      <find>1 * X^0 + 2 * X^1 + 3 * X^2 = - 1 * X^0 + 4 * X^1 + 3 * X^2</find>
+      <find>printFractionOrDecimal</find>
     </findStrings>
     <replaceStrings>
       <replace>Double</replace>
+      <replace>printFraction</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.scala" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -125,10 +156,10 @@
         <option value="$PROJECT_DIR$/src/main/scala/Parsing.scala" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/build.sbt" />
-        <option value="$PROJECT_DIR$/src/main/scala/ComputorV1/ComputorV1.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/ComputorV1/Utils.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/ComputorV1/ComputorV1Test.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/ComputorV1/EquationParser.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/ComputorV1/Utils.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/ComputorV1/ComputorV1.scala" />
       </list>
     </option>
   </component>
@@ -202,8 +233,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -218,7 +249,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -282,7 +313,8 @@
         <item itemvalue="ScalaTest.ComputorV1Test" />
         <item itemvalue="ScalaTest.ComputorV1Test" />
         <item itemvalue="ScalaTest.ComputorV1Test" />
-        <item itemvalue="Application.ComputorV1" />
+        <item itemvalue="ScalaTest.ComputorV1Test" />
+        <item itemvalue="ScalaTest.ComputorV1Test" />
       </list>
     </recent_temporary>
   </component>
@@ -332,50 +364,52 @@
       <workItem from="1558349925110" duration="16388000" />
       <workItem from="1558428128331" duration="24279000" />
       <workItem from="1558513004452" duration="5622000" />
-      <workItem from="1558521768871" duration="7486000" />
+      <workItem from="1558521768871" duration="7731000" />
+      <workItem from="1558599741255" duration="2007000" />
+      <workItem from="1558601800829" duration="1582000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ComputorV1Test - 2019.05.22 at 14h 30m 45s.xml">
+    <history-entry file="ComputorV1Test - 2019.05.23 at 10h 34m 29s.xml">
       <configuration name="ComputorV1Test" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ComputorV1Test - 2019.05.22 at 14h 32m 29s.xml">
+    <history-entry file="ComputorV1Test - 2019.05.23 at 10h 35m 46s.xml">
       <configuration name="ComputorV1Test" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ComputorV1Test - 2019.05.22 at 14h 33m 03s.xml">
+    <history-entry file="ComputorV1Test - 2019.05.23 at 10h 37m 16s.xml">
       <configuration name="ComputorV1Test" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ComputorV1Test - 2019.05.22 at 14h 35m 36s.xml">
+    <history-entry file="ComputorV1Test - 2019.05.23 at 10h 40m 13s.xml">
       <configuration name="ComputorV1Test" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ComputorV1Test - 2019.05.22 at 14h 37m 04s.xml">
+    <history-entry file="ComputorV1Test - 2019.05.23 at 10h 41m 05s.xml">
       <configuration name="ComputorV1Test" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ComputorV1Test - 2019.05.22 at 14h 37m 45s.xml">
+    <history-entry file="ComputorV1Test - 2019.05.23 at 10h 41m 44s.xml">
       <configuration name="ComputorV1Test" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ComputorV1Test - 2019.05.22 at 14h 38m 22s.xml">
+    <history-entry file="ComputorV1Test - 2019.05.23 at 10h 42m 29s.xml">
       <configuration name="ComputorV1Test" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ComputorV1Test - 2019.05.22 at 14h 40m 40s.xml">
+    <history-entry file="ComputorV1Test - 2019.05.23 at 10h 44m 00s.xml">
       <configuration name="ComputorV1Test" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ComputorV1Test - 2019.05.22 at 14h 46m 03s.xml">
+    <history-entry file="ComputorV1Test - 2019.05.23 at 10h 44m 27s.xml">
       <configuration name="ComputorV1Test" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ComputorV1Test - 2019.05.22 at 14h 48m 27s.xml">
+    <history-entry file="ComputorV1Test - 2019.05.23 at 10h 52m 02s.xml">
       <configuration name="ComputorV1Test" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57531000" />
+    <option name="totallyTimeSpent" value="61365000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1328" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16560763" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16799048" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -384,7 +418,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4912629" visible="true" weight="0.46359223" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4912629" visible="true" weight="0.37944984" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39967638" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -419,13 +453,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/scala/Parsing.scala" />
     <entry file="file://$PROJECT_DIR$/src/main/scala/ComputorV1/package.scala" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.2.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/Object.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="71" column="33" selection-start-line="71" selection-start-column="33" selection-end-line="71" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.2.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/Object.java" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -433,17 +461,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.2.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/System.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="1761" column="32" lean-forward="true" selection-start-line="1761" selection-start-column="32" selection-end-line="1761" selection-end-column="32" />
-          <folding>
-            <element signature="e#75137#75138#0" expanded="true" />
-            <element signature="e#75186#75187#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.2.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/System.java" />
     <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.8.jar!/scala/util/matching/Regex.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="385">
@@ -451,20 +469,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.2.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="2642" column="18" selection-start-line="2642" selection-start-column="18" selection-end-line="2642" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.sbt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.2.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/String.java" />
     <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.8-sources.jar!/scala/util/matching/Regex.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="586">
@@ -479,36 +484,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/ComputorV1/ComputorV1.scala">
+    <entry file="file://$PROJECT_DIR$/build.sbt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="19" />
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/ComputorV1/EquationParser.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="844">
+          <caret line="88" column="51" selection-start-line="88" selection-start-column="51" selection-end-line="88" selection-end-column="51" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/ComputorV1/ComputorV1Test.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="55" column="18" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
-          <folding>
-            <marker date="1558528733000" expanded="true" signature="2391:2423" ph="..." />
-          </folding>
+        <state relative-caret-position="711">
+          <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/ComputorV1/Utils.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="35" lean-forward="true" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
+        <state relative-caret-position="540">
+          <caret line="36" column="55" lean-forward="true" selection-start-line="36" selection-start-column="55" selection-end-line="36" selection-end-column="55" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/ComputorV1/EquationParser.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/ComputorV1/ComputorV1.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="59" column="37" selection-start-line="59" selection-start-column="37" selection-end-line="59" selection-end-column="37" />
+        <state relative-caret-position="1054">
+          <caret line="90" column="31" lean-forward="true" selection-start-line="90" selection-start-column="31" selection-end-line="90" selection-end-column="31" />
           <folding>
-            <element signature="e#20#43#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>

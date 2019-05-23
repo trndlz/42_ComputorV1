@@ -4,7 +4,7 @@
 		module="computorv1$sources"
 		revision="0.1"
 		status="integration"
-		publication="20190522124312"
+		publication="20190523105702"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>
