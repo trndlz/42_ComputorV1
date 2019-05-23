@@ -50,5 +50,4 @@ class Utils {
         s"${printDouble(numerator / denominator)}"
       }
   }
-
 }

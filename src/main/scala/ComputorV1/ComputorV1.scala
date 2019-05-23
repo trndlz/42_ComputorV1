@@ -82,22 +82,14 @@ object ComputorV1 {
 
   def main(args: Array[String]): Unit = {
 
-    if (args(0).length == 0) exitPgm("You have to enter an equation")
+    if (args.length == 0 || args(0).length == 0 ) exitPgm("You have to enter an equation")
     val equationMap = p.getEquationMap(args(0))
     if (equationMap == Nil) exitPgm("Only two equations")
-    if (equationMap.forall(_.coefficients != 0d)) exitPgm("Inifinte number of solutions")
-    val polyDegree = p.polynDegree(equationMap)
-    polyDegree match {
-      case None => exitPgm("C'est la hess")
-      case Some(_) =>
-    }
-    if (polyDegree.get > 2) {
-      println("The polynomial degree is strictly greater than 2, I can't solve.")
-      System.exit(1)
-    }
     val (a, b, c) = p.getEquationParams(equationMap)
     val solution = getSolutions(a, b, c)
-    println(s"Polynomial degree = $polyDegree")
+    val polyD = p.polynDegree(equationMap)
+    if (polyD.get > 2) exitPgm("The polynomial degree is strictly greater than 2, I can't solve.")
+    println(s"Polynomial degree = ${polyD.get}")
     println(solution.message)
     solution.solutions.map(println)
   }

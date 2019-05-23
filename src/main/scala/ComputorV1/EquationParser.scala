@@ -12,7 +12,6 @@
 
 package ComputorV1
 
-import cats.implicits._
 import scala.util.Try
 import scala.util.matching.Regex
 
@@ -88,13 +87,5 @@ class EquationParser {
       case 2 => mergeCoefficients(getParamsList(splitAr.head) ++ invertMap(getParamsList(splitAr(1))))
       case _ => Nil
     }
-//    if (eqMap.forall(_.coefficients != 0d)) throw new Exception("Djigebenw") else eqMap
   }
-
-
-
-
-
-
-
 }
