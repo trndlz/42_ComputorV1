@@ -48,17 +48,15 @@ class EquationParser {
       groupToEqParam(m.group(1), m.group(2))
     }) toList
 
-    val t = mergeCoefficients(matches)
-//    println("STRING")
-//    println(s)
-//    println("LIST")
-//    println(t)
-    t
+    mergeCoefficients(matches)
   }
 
   def highestDegree(coef: List[EqParameters]): Int = coef.map(_.degree).max
 
-  def polynDegree(coef: List[EqParameters]): Int = coef.filter(_.coefficients != 0d).map(_.degree).max
+  def polynDegree(coef: List[EqParameters]): Option[Int] = {
+    val removedBlanks = coef.filter(_.coefficients != 0d).map(_.degree)
+    if (removedBlanks.isEmpty) None else Some(removedBlanks.max)
+  }
 
   private def getCoef(d: Int, eq: List[EqParameters]): Option[Double] = eq.find(_.degree == d).map(_.coefficients)
 
@@ -68,19 +66,15 @@ class EquationParser {
 
   private def numberSign(n: Double): String = if (n < 0) s"-" else s"+"
 
-  private def testX(d: Double) = new java.text.DecimalFormat("#.#####").format(d)
-
-  private def printIntOrDouble(n: Double): String = if (n % 1 == 0d) s"${n.toInt}" else testX(n)
-
   def printSimplifiedEquation(eq: List[EqParameters]): String = {
-    val p = highestDegree(eq)
+    val p = polynDegree(eq).getOrElse(highestDegree(eq))
     val generator = for (i <- 0 to p if getCoef(i, eq).isDefined) yield (i, getCoef(i, eq).get)
     generator.map(e => {
       val number = (e._1, e._2) match {
-        case (0, x) if x < 0 => s"- ${printIntOrDouble(u.absD(e._2))}"
-        case (0, x) if x >= 0 => s"${printIntOrDouble(u.absD(e._2))}"
-        case (_, x) if x < 0 => s" - ${printIntOrDouble(u.absD(e._2))}"
-        case (_, x) if x >= 0 => s" + ${printIntOrDouble(u.absD(e._2))}"
+        case (0, x) if x < 0 => s"- ${u.printIntOrDouble(u.absD(e._2))}"
+        case (0, x) if x >= 0 => s"${u.printIntOrDouble(u.absD(e._2))}"
+        case (_, x) if x < 0 => s" - ${u.printIntOrDouble(u.absD(e._2))}"
+        case (_, x) if x >= 0 => s" + ${u.printIntOrDouble(u.absD(e._2))}"
       }
       s"$number * X^${e._1}"
     }).mkString.concat(" = 0")
@@ -92,8 +86,9 @@ class EquationParser {
     splitAr.length match {
       case 1 => getParamsList(splitAr.head)
       case 2 => mergeCoefficients(getParamsList(splitAr.head) ++ invertMap(getParamsList(splitAr(1))))
-      case _ => throw new Exception("Wrong expressions")
+      case _ => Nil
     }
+//    if (eqMap.forall(_.coefficients != 0d)) throw new Exception("Djigebenw") else eqMap
   }
 
 
