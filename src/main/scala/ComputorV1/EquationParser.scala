@@ -15,11 +15,19 @@ package ComputorV1
 import scala.util.Try
 import scala.util.matching.Regex
 
+
 class EquationParser {
 
   val u = new Utils
 
-  case class EqParameters(coefficients: Double, degree: Int)
+  object ParsingErrors {
+    val NOT_INT_EXP = "Exposant should be an integer"
+  }
+
+  case class EqParameters(
+                           coefficients: Double,
+                           degree: Int,
+                         )
 
   private def invertMap(m: List[EqParameters]): List[EqParameters] = {
     m.map(a => EqParameters(-a.coefficients, a.degree))
@@ -37,17 +45,42 @@ class EquationParser {
     EqParameters(coef, deg)
   }
 
+
+  private def paramConversion(a: Option[String], b: Option[String]): EqParameters = {
+    val aDouble: Double = a.flatMap(parseDouble).getOrElse(0f)
+    val bInt: Int = b.flatMap(parseInt).getOrElse(1)
+    EqParameters(aDouble, bInt)
+  }
+
+  private def parseInt(i: String): Option[Int] = Try(i.toInt).toOption
+  private def parseDouble(i: String): Option[Double] = Try(i.toDouble).toOption
+
   private def mergeCoefficients(l: List[EqParameters]): List[EqParameters] = {
     l.groupBy(_.degree) map { _._2 reduce { (a, b) => EqParameters(a.coefficients + b.coefficients, a.degree)}} toList
   }
 
-  private def getParamsList(s: String): List[EqParameters] = {
-    val r = new Regex("""([-+]?(?:\d+\.)?\d+)(?:[\*]?[Xx][\^]?(\d+))?""")
-    val matches = r.findAllMatchIn(removeAllWhiteSpaces(s)) map (m => {
-      groupToEqParam(m.group(1), m.group(2))
-    }) toList
+  private def parseEachCase(i: String): Option[EqParameters] = {
+    // EQUATION A * X ^ B
+    val aXExpB = new Regex("""^([-+]?[0-9]*\.?[0-9]+)\*X\^([-+]?[0-9]+)*$""")  // A != 0 && B != 0
+    val aX = new Regex("""^([-+]?[0-9]*\.?[0-9]+)\*X$""")                      // A != 0 && B == 0
+    val xExpB = new Regex("""^X\^([-+]?[0-9]+)*$""")                           // A = 1 && B != 0
+    val xOnly = new Regex("""^([-+]?)X$""")                                    // A = 1 && B = 1
+    val const = new Regex("""^([-+]?[0-9]*\.?[0-9]+)*$""")                     // A != 0 && B = 1
 
-    mergeCoefficients(matches)
+    i match {
+      case aXExpB(a, b) => Some(paramConversion(Some(a), Some(b)))
+      case aX(a) => Some(paramConversion(Some(a), None))
+      case xExpB(b) => Some(paramConversion(None, Some(b)))
+      case xOnly(a) => Some(paramConversion(if (a == s"-") Some("-1") else Some("1"), None))
+      case const(a) => Some(paramConversion(Some(a), None))
+      case _ => None
+    }
+  }
+
+  private def getParamsList(s: String): Option[List[EqParameters]] = {
+    val splitElements = s.split("""(?=[+-])""")
+    val parameters: List[Option[EqParameters]] = splitElements.map(parseEachCase).toList
+    if (parameters.contains(None)) None else Some(mergeCoefficients(parameters.flatten))
   }
 
   def highestDegree(coef: List[EqParameters]): Int = coef.map(_.degree).max
@@ -82,10 +115,15 @@ class EquationParser {
   def getEquationMap(s: String): List[EqParameters] = {
     val eqTest = removeAllWhiteSpaces(s)
     val splitAr = splitEquation(eqTest)
-    splitAr.length match {
-      case 1 => getParamsList(splitAr.head)
-      case 2 => mergeCoefficients(getParamsList(splitAr.head) ++ invertMap(getParamsList(splitAr(1))))
-      case _ => Nil
+    val leftParams = getParamsList(splitAr.head)
+    val rightParams = getParamsList(splitAr(1))
+    if (leftParams.isEmpty|| rightParams.isEmpty) Nil else {
+      splitAr.length match {
+        case 1 => leftParams.get
+        case 2 => mergeCoefficients(leftParams.get ++ invertMap(rightParams.get))
+        case _ => Nil
+      }
     }
+
   }
 }

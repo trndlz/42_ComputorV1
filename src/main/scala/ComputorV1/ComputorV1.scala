@@ -13,14 +13,15 @@
 package ComputorV1
 
 object SolutionTypes {
-  val QUADRATIC_SINGLE = "Discriminant is equal to zero, the solution is"
-  val LINEAR_EQUATION = "Linear equation, the solution is"
+  val QUADRATIC_SINGLE = "Discriminant is equal to zero, the solution is:"
+  val LINEAR_EQUATION = "Linear equation, the solution is:"
   val QUADRATIC_REAL = "Discriminant is strictly positive, the solutions are:"
   val QUADRATIC_COMPLEX = "Discriminant is strictly negative, the two complex solutions are:"
-  val NO_SOLUTION = "No solution"
-  val INFINITE_SOLUTIONS = "Infinite number of solutions"
-  val TOO_HIGH_DEGREE = "Equation cannot be solved "
+  val NO_SOLUTION = "No solution."
+  val INFINITE_SOLUTIONS = "Infinite number of solutions."
+  val TOO_HIGH_DEGREE = "Equation cannot be solved."
 }
+
 
 case class Solution(message: String, solutions: Array[String])
 
@@ -82,15 +83,16 @@ object ComputorV1 {
 
   def main(args: Array[String]): Unit = {
 
-    if (args.length == 0 || args(0).length == 0 ) exitPgm("You have to enter an equation")
+    if (args.length == 0 || args(0).length == 0) exitPgm("You have to enter an equation")
     val equationMap = p.getEquationMap(args(0))
-    if (equationMap == Nil) exitPgm("Only two equations")
+    if (equationMap == Nil) exitPgm("Wrong equation format")
     val (a, b, c) = p.getEquationParams(equationMap)
     val solution = getSolutions(a, b, c)
     val polyD = p.polynDegree(equationMap)
     if (polyD.get > 2) exitPgm("The polynomial degree is strictly greater than 2, I can't solve.")
-    println(s"Polynomial degree = ${polyD.get}")
+    println(s"Reduced form: ${p.printSimplifiedEquation(equationMap)}")
+    println(s"Polynomial degree: ${polyD.get}")
     println(solution.message)
-    solution.solutions.map(println)
+    solution.solutions.map(s => println())
   }
 }
