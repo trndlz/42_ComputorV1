@@ -63,16 +63,22 @@ class EquationParser {
     // EQUATION A * X ^ B
     val aXExpB = new Regex("""^([-+]?[0-9]*\.?[0-9]+)\*X\^([-+]?[0-9]+)*$""")  // A != 0 && B != 0
     val aX = new Regex("""^([-+]?[0-9]*\.?[0-9]+)\*X$""")                      // A != 0 && B == 0
-    val xExpB = new Regex("""^X\^([-+]?[0-9]+)*$""")                           // A = 1 && B != 0
+    val xExpB = new Regex("""^([-+])?X\^([-+]?[0-9]+)*$""")                           // A = 1 && B != 0
     val xOnly = new Regex("""^([-+]?)X$""")                                    // A = 1 && B = 1
     val const = new Regex("""^([-+]?[0-9]*\.?[0-9]+)*$""")                     // A != 0 && B = 1
 
     i match {
       case aXExpB(a, b) => Some(paramConversion(Some(a), Some(b)))
-      case aX(a) => Some(paramConversion(Some(a), None))
-      case xExpB(b) => Some(paramConversion(None, Some(b)))
+      case aX(a) => Some(paramConversion(Some(a), Some("1")))
+      case xExpB(s, b) => {
+        val sign = s match {
+          case "-" => "-1"
+          case _ => "1"
+        }
+        Some(paramConversion(Some(sign), Some(b)))
+      }
       case xOnly(a) => Some(paramConversion(if (a == s"-") Some("-1") else Some("1"), None))
-      case const(a) => Some(paramConversion(Some(a), None))
+      case const(a) => Some(paramConversion(Some(a), Some("0")))
       case _ => None
     }
   }
@@ -115,15 +121,15 @@ class EquationParser {
   def getEquationMap(s: String): List[EqParameters] = {
     val eqTest = removeAllWhiteSpaces(s)
     val splitAr = splitEquation(eqTest)
-    val leftParams = getParamsList(splitAr.head)
-    val rightParams = getParamsList(splitAr(1))
-    if (leftParams.isEmpty|| rightParams.isEmpty) Nil else {
-      splitAr.length match {
-        case 1 => leftParams.get
-        case 2 => mergeCoefficients(leftParams.get ++ invertMap(rightParams.get))
-        case _ => Nil
-      }
+    splitAr.length match {
+      case 1 =>
+        val left = getParamsList(splitAr.head)
+        if (left.isEmpty) Nil else left.get
+      case 2 =>
+        val left = getParamsList(splitAr.head)
+        val right = getParamsList(splitAr(1))
+        if (left.isEmpty || right.isEmpty) Nil else mergeCoefficients(left.get ++ invertMap(right.get))
+      case _ => Nil
     }
-
   }
 }

@@ -93,6 +93,6 @@ object ComputorV1 {
     println(s"Reduced form: ${p.printSimplifiedEquation(equationMap)}")
     println(s"Polynomial degree: ${polyD.get}")
     println(solution.message)
-    solution.solutions.map(s => println())
+    solution.solutions.foreach(println)
   }
 }

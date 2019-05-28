@@ -104,15 +104,15 @@ class ComputorV1Test extends FunSuite {
     })
   }
 
-//  test("Results") {
-//    testReducedFormAndResult.foreach(iTest => {
-//      val expectedSolution = iTest.solution
-//      val equationMap = eqP.getEquationMap(iTest.inputString)
-//      val (a, b, c) = eqP.getEquationParams(equationMap)
-//      val solution = ComputorV1.getSolutions(a, b, c)
-//      assert(expectedSolution.message == solution.message)
-//      assert(expectedSolution.solutions.deep == solution.solutions.deep)
-//    })
-//  }
+  test("Results") {
+    testReducedFormAndResult.foreach(iTest => {
+      val expectedSolution = iTest.solution
+      val equationMap = eqP.getEquationMap(iTest.inputString)
+      val (a, b, c) = eqP.getEquationParams(equationMap)
+      val solution = ComputorV1.getSolutions(a, b, c)
+      assert(expectedSolution.message == solution.message)
+      assert(expectedSolution.solutions.deep == solution.solutions.deep)
+    })
+  }
 
 }
