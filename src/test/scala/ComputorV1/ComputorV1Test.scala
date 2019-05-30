@@ -20,11 +20,13 @@ import org.scalatest.FunSuite
 
 class ComputorV1Test extends FunSuite {
 
-  case class ReducedFormAndSolutionClass(
-      inputString: String,
-      reducedForm: String,
-      solution: Solution
-  )
+  case class ReducedFormAndSolutionClass(inputString: String,
+                                          reducedForm: String,
+                                          solution: Solution)
+
+  case class InputErrorClass(inputString: String,
+                             errorTypes: String)
+
 
   val eqP = new EquationParser
 
@@ -95,6 +97,17 @@ class ComputorV1Test extends FunSuite {
     ),
   )
 
+  val inputErrors = List(
+    InputErrorClass(inputString = "5 * X ^ 0=5 * X ^ 0", errorTypes = ErrorTypes.INFINITE_SOLUTIONS),
+    InputErrorClass(inputString = "", errorTypes = ErrorTypes.NO_EQUATION),
+    InputErrorClass(inputString = "x = a", errorTypes = ErrorTypes.WRONG_FORMAT),
+    InputErrorClass(inputString = "i", errorTypes = ErrorTypes.WRONG_FORMAT),
+    InputErrorClass(inputString = "===", errorTypes = ErrorTypes.WRONG_FORMAT),
+    InputErrorClass(inputString = "==", errorTypes = ErrorTypes.WRONG_FORMAT),
+    InputErrorClass(inputString = "=", errorTypes = ErrorTypes.WRONG_FORMAT),
+    InputErrorClass(inputString = "1 = 2 = 3", errorTypes = ErrorTypes.WRONG_FORMAT),
+  )
+
   test("Reduced Form") {
     testReducedFormAndResult.foreach(iTest => {
       val expectedReducedForm = iTest.reducedForm
@@ -112,6 +125,15 @@ class ComputorV1Test extends FunSuite {
       val solution = ComputorV1.getSolutions(a, b, c)
       assert(expectedSolution.message == solution.message)
       assert(expectedSolution.solutions.deep == solution.solutions.deep)
+    })
+  }
+
+  test("InputErrors") {
+    inputErrors.foreach(iTest => {
+      val expectedError = iTest.errorTypes
+      val error = eqP.getInputErrors(Array(iTest.inputString))
+      println(iTest.inputString)
+      assert(error.get == expectedError)
     })
   }
 

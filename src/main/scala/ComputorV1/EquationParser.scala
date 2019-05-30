@@ -118,6 +118,26 @@ class EquationParser {
     }).mkString.concat(" = 0")
   }
 
+  def getInputErrors(args: Array[String]): Option[String] = {
+    if (args.length == 0 || args(0).length == 0) {
+      Some(ErrorTypes.NO_EQUATION)
+    } else {
+      val equationMap = getEquationMap(args(0))
+      if (equationMap == Nil) {
+        Some(ErrorTypes.WRONG_FORMAT)
+      } else {
+        val polyD = polynDegree(equationMap)
+        if (polyD.isEmpty) {
+          Some(ErrorTypes.INFINITE_SOLUTIONS)
+        } else if (polyD.get > 2) {
+          Some(ErrorTypes.TOO_HIGH_DEGREE)
+        } else {
+          None
+        }
+      }
+    }
+  }
+
   def getEquationMap(s: String): List[EqParameters] = {
     val eqTest = removeAllWhiteSpaces(s)
     val splitAr = splitEquation(eqTest)

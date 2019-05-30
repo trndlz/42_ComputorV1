@@ -12,6 +12,8 @@
 
 package ComputorV1
 
+import scala.collection.mutable.ListBuffer
+
 object SolutionTypes {
   val QUADRATIC_SINGLE = "Discriminant is equal to zero, the solution is:"
   val LINEAR_EQUATION = "Linear equation, the solution is:"
@@ -19,9 +21,14 @@ object SolutionTypes {
   val QUADRATIC_COMPLEX = "Discriminant is strictly negative, the two complex solutions are:"
   val NO_SOLUTION = "No solution."
   val INFINITE_SOLUTIONS = "Infinite number of solutions."
-  val TOO_HIGH_DEGREE = "Equation cannot be solved."
 }
 
+object ErrorTypes {
+  val NO_EQUATION = "Input Error -> No equation is given"
+  val WRONG_FORMAT = "Input Error -> Wrong equation format"
+  val TOO_HIGH_DEGREE = "Input Error -> The polynomial degree is strictly greater than 2, I can't solve."
+  val INFINITE_SOLUTIONS = "Input Error -> Infinite number of solutions."
+}
 
 case class Solution(message: String, solutions: Array[String])
 
@@ -34,7 +41,7 @@ object ComputorV1 {
     val sqrtDelta = u.sqrt(-delta)
     val realPart = -b / (2 * a)
     val complexPart = sqrtDelta / (2 * a)
-    val realS = u.printFraction(-b, 2 * a)
+    val realS = if (realPart != 0d) u.printFraction(-b, 2 * a) else s"0"
     val complexS = if (complexPart == 1d) s"i" else s"${u.printFraction(sqrtDelta, 2 * a)}i"
     Solution(SolutionTypes.QUADRATIC_COMPLEX,
       Array(
@@ -75,24 +82,22 @@ object ComputorV1 {
     }
   }
 
-  private def exitPgm(msg: String) = {
-    println(msg)
-    System.exit(1)
-  }
+
 
 
   def main(args: Array[String]): Unit = {
-
-    if (args.length == 0 || args(0).length == 0) exitPgm("You have to enter an equation")
-    val equationMap = p.getEquationMap(args(0))
-    if (equationMap == Nil) exitPgm("Wrong equation format")
-    val (a, b, c) = p.getEquationParams(equationMap)
-    val solution = getSolutions(a, b, c)
-    val polyD = p.polynDegree(equationMap)
-    if (polyD.get > 2) exitPgm("The polynomial degree is strictly greater than 2, I can't solve.")
-    println(s"Reduced form: ${p.printSimplifiedEquation(equationMap)}")
-    println(s"Polynomial degree: ${polyD.get}")
-    println(solution.message)
-    solution.solutions.foreach(println)
+    val errors = p.getInputErrors(args)
+    if (errors.isEmpty) {
+      val equationMap = p.getEquationMap(args(0))
+      val (a, b, c) = p.getEquationParams(equationMap)
+      val solution = getSolutions(a, b, c)
+      val polyD = p.polynDegree(equationMap)
+      println(s"Reduced form: ${p.printSimplifiedEquation(equationMap)}")
+      println(s"Polynomial degree: ${polyD.get}")
+      println(solution.message)
+      solution.solutions.foreach(println)
+    } else {
+      errors.foreach(println)
+    }
   }
 }

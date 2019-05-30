@@ -42,7 +42,7 @@ class Utils {
         val sign = if (numerator * denominator < 0) s"- " else s""
         val n = abs(numerator.toInt)
         val d = abs(denominator.toInt)
-        if (n == d) s"1" else {
+        if (n == d) s"${sign}1" else {
           val g = gcd(n, d)
           s"$sign${n / g} / ${d / g}"
         }
