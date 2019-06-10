@@ -132,7 +132,6 @@ class ComputorV1Test extends FunSuite {
     inputErrors.foreach(iTest => {
       val expectedError = iTest.errorTypes
       val error = eqP.getInputErrors(Array(iTest.inputString))
-      println(iTest.inputString)
       assert(error.get == expectedError)
     })
   }
