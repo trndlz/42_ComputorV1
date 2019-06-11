@@ -159,7 +159,7 @@ class ComputorV1Test extends FunSuite {
     })
   }
 
-  test("Alternative siplified Writing of Equation") {
+  test("Alternative simplified Writing of Equation") {
     testAlternativeWriting.foreach(iTest => {
       val expectedReducedForm = iTest.reducedForm
       val equationMap = eqP.getEquationMap(iTest.inputString)

@@ -106,7 +106,7 @@ class EquationParser {
 
   def printSimplifiedEquation(eq: List[EqParameters]): String = {
     val p = polynDegree(eq).getOrElse(highestDegree(eq))
-    val generator = for (i <- 0 to p if getCoef(i, eq).isDefined) yield (i, getCoef(i, eq).get)
+    val generator = for (i <- 0 to p) yield (i, getCoef(i, eq).getOrElse(0d))
     generator.map(e => {
       val number = (e._1, e._2) match {
         case (0, x) if x < 0 => s"- ${u.printIntOrDouble(u.absD(e._2))}"
