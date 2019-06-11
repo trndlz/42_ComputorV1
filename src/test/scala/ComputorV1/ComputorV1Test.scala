@@ -97,6 +97,29 @@ class ComputorV1Test extends FunSuite {
     ),
   )
 
+  val testAlternativeWriting = List(
+    ReducedFormAndSolutionClass(
+      "1 * X^0 + 2 * X^1 = - 6 * X^0 + 4 * X^1 + 1 * X ^ 2",
+      "7 * X^0 - 2 * X^1 - 1 * X^2 = 0",
+      Solution(SolutionTypes.QUADRATIC_REAL, Array("-2.73205", "0.73205"))
+    ),
+    ReducedFormAndSolutionClass(
+      "1 + 2 * X^1 = - 6 + 4 * X^1 + 1 * X ^ 2",
+      "7 * X^0 - 2 * X^1 - 1 * X^2 = 0",
+      Solution(SolutionTypes.QUADRATIC_REAL, Array("-2.73205", "0.73205"))
+    ),
+     ReducedFormAndSolutionClass(
+      "1 + 2 X = - 6 + 4 X + 1 * X ^ 2",
+      "7 * X^0 - 2 * X^1 - 1 * X^2 = 0",
+      Solution(SolutionTypes.QUADRATIC_REAL, Array("-2.73205", "0.73205"))
+    ),
+    ReducedFormAndSolutionClass(
+      "1 + 2X = - 6 + 4X + X ^ 2",
+      "7 * X^0 - 2 * X^1 - 1 * X^2 = 0",
+      Solution(SolutionTypes.QUADRATIC_REAL, Array("-2.73205", "0.73205"))
+    ),
+  )
+
   val inputErrors = List(
     InputErrorClass(inputString = "5 * X ^ 0=5 * X ^ 0", errorTypes = ErrorTypes.INFINITE_SOLUTIONS),
     InputErrorClass(inputString = "", errorTypes = ErrorTypes.NO_EQUATION),
@@ -133,6 +156,15 @@ class ComputorV1Test extends FunSuite {
       val expectedError = iTest.errorTypes
       val error = eqP.getInputErrors(Array(iTest.inputString))
       assert(error.get == expectedError)
+    })
+  }
+
+  test("Alternative siplified Writing of Equation") {
+    testAlternativeWriting.foreach(iTest => {
+      val expectedReducedForm = iTest.reducedForm
+      val equationMap = eqP.getEquationMap(iTest.inputString)
+      val reducedForm = eqP.printSimplifiedEquation(equationMap)
+      assert(expectedReducedForm == reducedForm)
     })
   }
 

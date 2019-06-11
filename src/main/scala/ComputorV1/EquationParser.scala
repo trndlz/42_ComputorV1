@@ -62,8 +62,8 @@ class EquationParser {
   private def parseEachCase(i: String): Option[EqParameters] = {
     // EQUATION A * X ^ B
     val aXExpB = new Regex("""^([-+]?[0-9]*\.?[0-9]+)\*X\^([-+]?[0-9]+)*$""")  // A != 0 && B != 0
-    val aX = new Regex("""^([-+]?[0-9]*\.?[0-9]+)\*X$""")                      // A != 0 && B == 0
-    val xExpB = new Regex("""^([-+])?X\^([-+]?[0-9]+)*$""")                           // A = 1 && B != 0
+    val aX = new Regex("""^([-+]?[0-9]*\.?[0-9]+)\*?X$""")                     // A != 0 && B == 0
+    val xExpB = new Regex("""^([-+])?X\^([-+]?[0-9]+)*$""")                    // A = 1 && B != 0
     val xOnly = new Regex("""^([-+]?)X$""")                                    // A = 1 && B = 1
     val const = new Regex("""^([-+]?[0-9]*\.?[0-9]+)*$""")                     // A != 0 && B = 1
 
